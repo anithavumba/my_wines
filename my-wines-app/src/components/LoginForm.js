@@ -1,21 +1,21 @@
-// LoginForm.js
-
+// src/components/LoginForm.js
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router-dom';
 
-const LoginForm = () => {
+const LoginForm = ({ isAuthenticated, onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: '/' } };
 
   const handleLogin = () => {
-    // Add authentication logic here
-    // For now, let's just log the entered credentials
-    console.log('Email:', email);
-    console.log('Password:', password);
-
-    // If login is successful, navigate to List of Wines Page
-    history.push('/list-wines');
+    // Implement your authentication logic here
+    // For simplicity, let's consider any non-empty email/password as a successful login
+    if (email.trim() !== '' && password.trim() !== '') {
+      onLogin();
+      history.replace(from);
+    }
   };
 
   return (
