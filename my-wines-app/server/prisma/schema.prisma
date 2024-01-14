@@ -1,0 +1,4 @@
+datasource db {
+  provider = "postgresql" // Replace with your database provider
+  url      = env("DATABASE_URL") // Replace with your actual database URL
+}
