@@ -40,14 +40,14 @@ function App() {
         <main>
           <Switch>
             <Route path="/add-wine">
-              <AddWinePage addWine={addWine} />
+              <AddWineForm addWine={addWine} />
             </Route>
             <Route path="/list-wines">
-              <ListWinesPage wines={wines} />
+              <WineList wines={wines} />
             </Route>
             <Route path="/edit-wine/:id" component={EditWineForm} />
             <Route path="/login" component={LoginForm} />
-            <Route path="/logout" component={LogoutForm} />
+            <Route path="/logout" component={LogoutPage} />
             {/* Add other routes as needed */}
           </Switch>
         </main>
