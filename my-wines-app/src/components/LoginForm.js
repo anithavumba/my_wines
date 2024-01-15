@@ -1,21 +1,26 @@
-// src/components/LoginForm.js
+// LoginForm.js
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
 const LoginForm = ({ isAuthenticated, onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
-  const location = useLocation();
-  const { from } = location.state || { from: { pathname: '/' } };
 
   const handleLogin = () => {
     // Implement your authentication logic here
     // For simplicity, let's consider any non-empty email/password as a successful login
-    if (email.trim() !== '' && password.trim() !== '') {
-      onLogin();
-      history.replace(from);
-    }
+    onLogin();
+  };
+
+  const handleRegister = () => {
+    // Implement your registration logic here
+    // For simplicity, let's just log the entered credentials
+    console.log('Register - Email:', email);
+    console.log('Register - Password:', password);
+
+    // After successfully registering, navigate back to the login page
+    history.push('/login');
   };
 
   return (
@@ -28,6 +33,7 @@ const LoginForm = ({ isAuthenticated, onLogin }) => {
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       <br />
       <button onClick={handleLogin}>Login</button>
+      <button onClick={handleRegister}>Register</button>
     </div>
   );
 };
