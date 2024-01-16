@@ -10,17 +10,26 @@ const LoginForm = ({ isAuthenticated, onLogin }) => {
   const handleLogin = () => {
     // Implement your authentication logic here
     // For simplicity, let's consider any non-empty email/password as a successful login
-    onLogin();
-  };
+    console.log('Logging in...');
 
-  const handleRegister = () => {
-    // Implement your registration logic here
-    // For simplicity, let's just log the entered credentials
-    console.log('Register - Email:', email);
-    console.log('Register - Password:', password);
+    // Check if email and password are not empty (you might want more robust validation)
+    if (email.trim() !== '' && password.trim() !== '') {
+      // Hardcoded valid credentials for this example
+      const validEmail = 'user@example.com';
+      const validPassword = 'password';
 
-    // After successfully registering, navigate back to the login page
-    history.push('/login');
+      // Check if entered credentials match the valid ones
+      if (email === validEmail && password === validPassword) {
+        onLogin(); // Update authentication state
+
+        // Redirect the user to the list of wines page after successful login
+        history.push('/list-wines');
+      } else {
+        console.error('Invalid email or password.');
+      }
+    } else {
+      console.error('Email and password cannot be empty.');
+    }
   };
 
   return (
@@ -33,7 +42,6 @@ const LoginForm = ({ isAuthenticated, onLogin }) => {
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       <br />
       <button onClick={handleLogin}>Login</button>
-      <button onClick={handleRegister}>Register</button>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "MyWines",
+  "name": "My Wines App",
+  "description": "An app for managing wines",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +19,36 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "scope": "/",
+  "orientation": "portrait",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "Add Wine",
+      "description": "Add a new wine",
+      "url": "/add-wine",
+      "icons": [
+        {
+          "src": "shortcut-icon.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "List Wines",
+      "description": "View all wines",
+      "url": "/list-wines",
+      "icons": [
+        {
+          "src": "shortcut-icon.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }
