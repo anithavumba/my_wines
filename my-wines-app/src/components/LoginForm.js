@@ -2,16 +2,12 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 
-const LoginForm = ({ isAuthenticated, onLogin }) => {
+const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
 
   const handleLogin = () => {
-    // Implement your authentication logic here
-    // For simplicity, let's consider any non-empty email/password as a successful login
-    console.log('Logging in...');
-
     // Check if email and password are not empty (you might want more robust validation)
     if (email.trim() !== '' && password.trim() !== '') {
       // Hardcoded valid credentials for this example
